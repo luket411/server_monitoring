@@ -71,7 +71,7 @@ docker compose logs -f
 Or view the status log directly:
 
 ```bash
-tail -f runtime/data/status.log
+tail -f data/status.log
 ```
 
 ## How It Works
@@ -113,7 +113,7 @@ To configure Discord alerts:
 
 ## Logs and State
 
-Files stored in `runtime/data/`:
+Files stored in `data/`:
 
 - `status.log` — full monitoring logs
 - `cron.log` — cron execution logs
