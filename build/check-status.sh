@@ -2,11 +2,15 @@
 
 source /etc/environment
 
-LOG_FILE="/data/status.log"
+LOG_DIR="/data"
+DATE=$(date +%F)
+LOG_FILE="$LOG_DIR/status-$DATE.log"
 STATE_FILE="/data/last_alert"
 
+mkdir -p "$LOG_DIR"
+
 log() {
-  echo "[$(date)] $1" | tee -a "$LOG_FILE"
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
 }
 
 check_ping() {
@@ -44,19 +48,3 @@ if [ "$success" -eq 1 ]; then
 fi
 
 log "FAIL: $TARGET is DOWN"
-
-now=$(date +%s)
-last_alert=0
-
-if [ -f "$STATE_FILE" ]; then
-  last_alert=$(cat "$STATE_FILE")
-fi
-
-if [ $((now - last_alert)) -lt "$ALERT_COOLDOWN" ]; then
-  log "Alert skipped (cooldown active)"
-  exit 0
-fi
-
-/app/send-warning.sh "$TARGET"
-
-echo "$now" > "$STATE_FILE"

@@ -1,1 +1,0 @@
-*/30 * * * * /app/check-status.sh >> /data/cron.log 2>&1

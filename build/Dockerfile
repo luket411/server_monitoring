@@ -14,7 +14,7 @@ WORKDIR /app
 COPY check-status.sh /app/check-status.sh
 COPY send-warning.sh /app/send-warning.sh
 COPY entrypoint.sh /app/entrypoint.sh
-COPY crontab /etc/crontabs/root
+COPY cleanup-logs.sh /app/cleanup-logs.sh
 
 # Permissions
 RUN chmod +x /app/*.sh

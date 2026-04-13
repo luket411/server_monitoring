@@ -6,3 +6,9 @@ RETRIES=3
 RETRY_DELAY=5
 ALERT_COOLDOWN=1800
 TZ=Europe/London
+
+# Monitoring frequency (cron format)
+CHECK_SCHEDULE="*/30 * * * *"
+
+# Cleanup schedule (cron format)
+CLEANUP_SCHEDULE="0 3 * * *"
