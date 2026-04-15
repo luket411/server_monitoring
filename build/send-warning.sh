@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET="$1"
+source /etc/environment
 
 if [ -z "$TARGET" ]; then
   echo "Usage: send-warning.sh <target>"
@@ -13,3 +13,4 @@ curl -s -H "Content-Type: application/json" \
   -X POST \
   -d "{\"content\": \"$MESSAGE\"}" \
   "$DISCORD_WEBHOOK_URL"
+

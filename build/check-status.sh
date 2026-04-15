@@ -48,3 +48,4 @@ if [ "$success" -eq 1 ]; then
 fi
 
 log "FAIL: $TARGET is DOWN"
+/app/send-warning.sh
