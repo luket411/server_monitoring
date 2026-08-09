@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG_DIR="/data"
+source /etc/environment
 
 echo "[$(date)] Cleaning logs older than 48 hours..."
 

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# -- Here we define functions which might be needed at job runtime but is not know 
+# -- We should not define anything which
+
+source /etc/environment
+
+DATE=$(date +%F)
+LOG_FILE="$LOG_DIR/status-$DATE.log"
+
+
+log() {
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
+}

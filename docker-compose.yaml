@@ -1,0 +1,14 @@
+services:
+  ddmf-container:
+    container_name: ddmf-container
+    build:
+      context: ./build
+      dockerfile: ddmf/Dockerfile
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./logs:/logs
+
+    restart: unless-stopped
