@@ -5,7 +5,7 @@
 # -- cron format helper: https://en.wikipedia.org/wiki/Cron
 
 # -- Main job frequency (cron format) (default: every 1 minutes)
-JOB_SCHEDULE="*/1 * * * *"
+JOB_SCHEDULE="*/30 * * * *"
 
 # -- Log retention (in days)
 LOG_RETENTION=3
@@ -15,7 +15,7 @@ LOG_RETENTION=3
 
 TZ=Europe/London
 
-DISCORD_BOT_IDENTIFIER="NAS Uptime Monitor"
+DISCORD_BOT_IDENTIFIER="NAS_Uptime_Monitor"
 
 # ----------------------------------------------
 # -- Container specific environment variables --
