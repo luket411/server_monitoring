@@ -15,7 +15,7 @@ LOG_RETENTION=3
 
 TZ=Europe/London
 
-# DISCORD_BOT_IDENTIFIER="NAS Uptime Monitor"
+DISCORD_BOT_IDENTIFIER="NAS Uptime Monitor"
 
 # ----------------------------------------------
 # -- Container specific environment variables --
