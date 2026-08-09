@@ -12,3 +12,18 @@ LOG_FILE="$LOG_DIR/status-$DATE.log"
 log() {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
 }
+
+send-warning(){
+  if [ -z "$1" ]; then
+    echo "Usage: send-warning <ALERT_TEXT>"
+    exit 1
+  fi
+
+  ALERT_TEXT="$1"
+  MESSAGE="🚨 **ALERT ${DISCORD_BOT_IDENTIFIER}**: $ALERT_TEXT @ $(date '+%Y-%m-%d %H:%M:%S')"
+
+  curl -s -H "Content-Type: application/json" \
+    -X POST \
+    -d "{\"content\": \"$MESSAGE\"}" \
+    "$DISCORD_WEBHOOK_URL"
+}

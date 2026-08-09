@@ -31,4 +31,4 @@ source /app/runtime-functions
 #   log "Task failed."
 # fi
 
-# /app/send-warning.sh "Task failed due to odd minute."
+# send-warning "Task failed due to odd minute."

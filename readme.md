@@ -10,9 +10,26 @@ While running everything in docker is probably a little overkill, this framework
 - Embedding the cron jobs in the docker container allows me to version control my cron commands
 - In the event of having to re-run any setup I've done, I can just spin up a new version of the docker container rather than having to re-remember cron commands which I probably got from claude anyway
 
+## Quickstart guide
+
+1. Add in any parameters which your container may need to the .env.tpl file
+1. Add some functionality to the [`./build/job.sh'](./build/job.sh) script. See more in [writing-your-script](#writing-your-script)
+    1. Optionally, install any extra software dependencies into the top lines of the [`Dockerfile`](./build/ddmf/Dockerfile)
+1. Configure the `JOB_SCHEDULE` and `CLEANUP_SCHEDULE` environment variables in the .env.tpl file
+1. Run the container with `docker compose up -d --rm`
+
+### Writing your script
+
+To help write your script, the framework provides a few interfaces for you to call
+
+- `log <message>`
+    - This is bash function which creates a date-stamped log file in your `/logs` file with 
+- `send-warning <alert>`
+    - This is another bash function to alert the discord channel with the message you provide
+
+There is an example script in ['job.sh'](./build/job.sh) with a task to check if the minute is odd and notify if so.
+
 ## Container Structure
-
-
 ```text
 /etc
 └──environment
@@ -26,7 +43,6 @@ While running everything in docker is probably a little overkill, this framework
 
 /data
 ```
-
 
 ## Scopes
 
