@@ -17,7 +17,7 @@ COPY ddmf/runtime-functions /app/runtime-functions
 COPY job.sh /app/job.sh
 
 # -- Fix Permissions
-RUN /app/*.sh
+RUN chmod +x /app/*.sh
 
 # -- Ensure log directory exists
 RUN mkdir -p /logs
