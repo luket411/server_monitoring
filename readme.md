@@ -4,6 +4,8 @@ A lightweight, self-hosted uptime monitoring system with Docker Compose and Disc
 
 It performs health checks every 30 minutes using either ICMP ping or HTTP requests, retries failures, rate-limits alerts, and stores logs on the host.
 
+Based on the [ddmf structure](https://github.com/luket411/ddmf).
+
 ## Features
 
 - Ping or HTTP health checks
@@ -13,21 +15,6 @@ It performs health checks every 30 minutes using either ICMP ping or HTTP reques
 - Persistent logs stored on the host filesystem
 - Fully containerized with Docker Compose
 - Configurable via `.env`
-
-## Project Structure
-
-```text
-.
-├── docker-compose.yml
-├── .env
-├── build/
-│   ├── Dockerfile
-│   ├── crontab
-│   ├── entrypoint.sh
-│   ├── check-status.sh
-│   └── send-warning.sh
-└── data/
-```
 
 ## Configuration
 
