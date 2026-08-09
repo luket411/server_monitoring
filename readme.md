@@ -4,6 +4,8 @@ A lightweight, self-hosted uptime monitoring system with Docker Compose and Disc
 
 It performs health checks every 30 minutes using either ICMP ping or HTTP requests, retries failures, rate-limits alerts, and stores logs on the host.
 
+Based on the [ddmf structure](https://github.com/luket411/ddmf). To merge in the latest ddmf see [here.](#ddmf-migration-guide)
+
 ## Features
 
 - Ping or HTTP health checks
@@ -13,21 +15,6 @@ It performs health checks every 30 minutes using either ICMP ping or HTTP reques
 - Persistent logs stored on the host filesystem
 - Fully containerized with Docker Compose
 - Configurable via `.env`
-
-## Project Structure
-
-```text
-.
-├── docker-compose.yml
-├── .env
-├── build/
-│   ├── Dockerfile
-│   ├── crontab
-│   ├── entrypoint.sh
-│   ├── check-status.sh
-│   └── send-warning.sh
-└── data/
-```
 
 ## Configuration
 
@@ -163,3 +150,25 @@ Consider adding:
 - Support for monitoring multiple targets from a config file
 - A continuous worker loop instead of cron
 - Prometheus metrics endpoint
+
+## ddmf migration guide
+
+```bash
+git checkout main
+git pull
+
+# If not already run
+git remote add ddmf git@github.com:luket411/ddmf.git
+
+git branch ddmf-migration
+git fetch ddmf
+
+git checkout ddmf-migration
+git merge ddmf/ddmf-main
+
+# Fix any conflicts
+
+git push
+
+# Then open a normal PR and merge
+```

@@ -1,17 +1,6 @@
 #!/bin/bash
-
 source /etc/environment
-
-LOG_DIR="/data"
-DATE=$(date +%F)
-LOG_FILE="$LOG_DIR/status-$DATE.log"
-STATE_FILE="/data/last_alert"
-
-mkdir -p "$LOG_DIR"
-
-log() {
-  echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
-}
+source /app/runtime-functions
 
 check_ping() {
   ping -c 1 -W 5 "$TARGET" > /dev/null 2>&1
@@ -47,5 +36,4 @@ if [ "$success" -eq 1 ]; then
   exit 0
 fi
 
-log "FAIL: $TARGET is DOWN"
-/app/send-warning.sh
+send-warning "$TARGET is DOWN"
