@@ -2,9 +2,9 @@
 
 source /etc/environment
 
-echo "[$(date)] Cleaning logs older than 48 hours..."
+echo "[$(date)] Cleaning logs older than ${LOG_RETENTION} days..."
 
-# Keep only last 2 daily logs (today + yesterday)
-find "$LOG_DIR" -type f -name "status-*.log" -mtime +2 -delete
+# Keep only the last $LOG_RETENTION daily logs
+find "$LOG_DIR" -type f -name "status-*.log" -mtime +"$((${LOG_RETENTION} - 1))" -delete
 
 echo "[$(date)] Cleanup complete."

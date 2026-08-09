@@ -7,8 +7,8 @@
 # -- Main job frequency (cron format) (default: every 1 minutes)
 JOB_SCHEDULE="*/1 * * * *"
 
-# -- Cleanup schedule (cron format) (default: every day at 3am)
-CLEANUP_SCHEDULE="0 3 * * *"
+# -- Log retention (in days)
+LOG_RETENTION=3
 
 # -- Discord webhook url
 # DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...

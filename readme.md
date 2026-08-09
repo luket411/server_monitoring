@@ -15,8 +15,8 @@ While running everything in docker is probably a little overkill, this framework
 1. Add in any parameters which your container may need to the .env.tpl file
 1. Add some functionality to the [`./build/job.sh'](./build/job.sh) script. See more in [writing-your-script](#writing-your-script)
     1. Optionally, install any extra software dependencies into the top lines of the [`Dockerfile`](./build/ddmf/Dockerfile)
-1. Configure the `JOB_SCHEDULE` and `CLEANUP_SCHEDULE` environment variables in the .env.tpl file
-1. Run the container with `docker compose up -d --rm`
+1. Configure the `JOB_SCHEDULE` and `LOG_RETENTION` environment variables in the .env.tpl file
+1. Run the container with `docker compose up -d --build`
 
 ### Writing your script
 

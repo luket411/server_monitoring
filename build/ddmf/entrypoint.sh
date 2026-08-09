@@ -18,6 +18,9 @@ done
 echo LOG_DIR=/logs >> /etc/environment
 echo DISCORD_WEBHOOK_URL=$DISCORD_WEBHOOK_URL
 echo DISCORD_BOT_IDENTIFIER=$DISCORD_BOT_IDENTIFIER >> /etc/environment
+echo LOG_RETENTION=$LOG_RETENTION >> /etc/environment
+
+CLEANUP_SCHEDULE="0 3 * * *"
 
 # Generate cron file
 cat > /etc/crontabs/root <<EOF
