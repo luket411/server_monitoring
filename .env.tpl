@@ -15,7 +15,7 @@ LOG_RETENTION=3
 
 TZ=Europe/London
 
-# DISCORD_BOT_IDENTIFIER=""
+DISCORD_BOT_IDENTIFIER="basic-ddmf-container"
 
 # ----------------------------------------------
 # -- Container specific environment variables --
