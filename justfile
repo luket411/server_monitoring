@@ -24,7 +24,7 @@ stop:
 build:
     docker compose build
 
-up: build
+up:
     docker compose up -d
 
 run-job: up
