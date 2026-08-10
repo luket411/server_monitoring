@@ -2,6 +2,18 @@
 source /etc/environment
 source /app/runtime-functions
 
+# -- Exposed functions
+# -- log <message> - Logs a message to the console and to the log file.
+# -- send-warning <message> - Sends a warning message to Discord.
+
+# -- Exposed Environment Variables
+# -- All variables in .env
+# -- LOG_DIR - The directory where logs are kept
+
+# -----------------------------------------
+# ------- User Code Below This Line -------
+# -----------------------------------------
+
 # -- Your Task goes here, see the example below for a simple task which checks if the current minute is even or odd and sends a warning to discord if it is odd.
 
 check_if_minute_even(){
