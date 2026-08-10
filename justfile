@@ -47,9 +47,9 @@ _setup-ddmf-git:
     if ! git remote get-url {{ddmf_git_remote_name}} | grep -q "^{{ddmf_git_remote_url}}$"; then git remote set-url {{ddmf_git_remote_name}} {{ddmf_git_remote_url}}; fi
     if git branch | grep -q "ddmf-migration"; then git branch -d "ddmf-migration"; fi
 
-[confirm("Have any merge conflicts been resolved?")]
+[confirm("Have any merge conflicts been resolved? (y/n) (default: n)")]
 _finish-migration:
-    git commit
+    git commit -m "Merge commit: DDMF Migration"
     git push origin ddmf-migration
 
 update-ddmf: _setup-ddmf-git && _finish-migration
