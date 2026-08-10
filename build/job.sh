@@ -2,6 +2,18 @@
 source /etc/environment
 source /app/runtime-functions
 
+# -- Exposed functions
+# -- log <message> - Logs a message to the console and to the log file.
+# -- send-warning <message> - Sends a warning message to Discord.
+
+# -- Exposed Environment Variables
+# -- All variables in .env
+# -- LOG_DIR - The directory where logs are kept
+
+# -----------------------------------------
+# ------- User Code Below This Line -------
+# -----------------------------------------
+
 check_ping() {
   ping -c 1 -W 5 "$TARGET" > /dev/null 2>&1
 }
