@@ -1,6 +1,6 @@
 services:
   ddmf-container:
-    container_name: nas-uptime-monitor
+    container_name: ${DISCORD_BOT_IDENTIFIER}
     build:
       context: ./build
       dockerfile: ddmf/Dockerfile
