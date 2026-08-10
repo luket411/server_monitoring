@@ -35,14 +35,17 @@ ddmf_git_remote_url := "git@github.com:luket411/ddmf.git"
 
 [windows]
 _setup-ddmf-git:
+    git checkout main
     if (-not (git remote | Select-String -Pattern "^{{ddmf_git_remote_name}}$" -Quiet)) { git remote add {{ddmf_git_remote_name}} {{ddmf_git_remote_url}}}
     if (-not (git remote get-url {{ddmf_git_remote_name}} | Select-String -Pattern "^{{ddmf_git_remote_url}}$" -Quiet)) { git remote set-url {{ddmf_git_remote_name}} {{ddmf_git_remote_url}}}
     if (git branch | Select-String "ddmf-migration" -Quiet) { git branch -d "ddmf-migration" }
 
 [unix]
 _setup-ddmf-git:
+    git checkout main
     if ! git remote | grep -q "^{{ddmf_git_remote_name}}$"; then git remote add {{ddmf_git_remote_name}} {{ddmf_git_remote_url}}; fi
     if ! git remote get-url {{ddmf_git_remote_name}} | grep -q "^{{ddmf_git_remote_url}}$"; then git remote set-url {{ddmf_git_remote_name}} {{ddmf_git_remote_url}}; fi
+    if git branch | grep -q "ddmf-migration"; then git branch -d "ddmf-migration"; fi
 
 [confirm("Have any merge conflicts been resolved?")]
 _finish-migration:
