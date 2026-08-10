@@ -51,6 +51,7 @@ _setup-ddmf-git:
 _finish-migration:
     git commit -m "Merge commit: DDMF Migration"
     git push -u origin ddmf-migration --force
+    git checkout main
 
 update-ddmf: _setup-ddmf-git && _finish-migration
     git fetch {{ddmf_git_remote_name}}
