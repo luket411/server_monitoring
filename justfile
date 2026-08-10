@@ -57,7 +57,6 @@ update-ddmf: _setup-ddmf-git && _finish-migration
     git fetch {{ddmf_git_remote_name}}
     git fetch origin
 
-    git checkout main
     git pull
     git checkout -b ddmf-migration
 
