@@ -132,13 +132,25 @@ RETRY_DELAY=5
 Start the system:
 
 ```bash
-docker compose up -d --build
+just build
 ```
 
 Stop the system:
 
 ```bash
-docker compose down
+just stop
+```
+
+Run the job once to check it's working (combine this with looking at logs)
+
+```bash
+just run-job
+```
+
+For more commands, see
+
+```bash
+just
 ```
 
 ## Potential Upgrades
@@ -154,21 +166,5 @@ Consider adding:
 ## ddmf migration guide
 
 ```bash
-git checkout main
-git pull
-
-# If not already run
-git remote add ddmf git@github.com:luket411/ddmf.git
-
-git branch ddmf-migration
-git fetch ddmf
-
-git checkout ddmf-migration
-git merge ddmf/ddmf-main
-
-# Fix any conflicts
-
-git push
-
-# Then open a normal PR and merge
+just update-ddmf
 ```
