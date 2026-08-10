@@ -8,7 +8,7 @@
 JOB_SCHEDULE="*/30 * * * *"
 
 # -- Log retention (in days)
-LOG_RETENTION=4
+LOG_RETENTION=3
 
 # -- Discord webhook url
 # DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
