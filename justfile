@@ -47,10 +47,7 @@ _setup-ddmf-git:
 [confirm("Have any merge conflicts been resolved?")]
 _finish-migration:
     git commit
-
     git push origin ddmf-migration
-
-    Write-host "Make a PR with: https://github.com/luket411/ddmf/compare/main...ddmf-migration"
 
 update-ddmf: _setup-ddmf-git && _finish-migration
     git fetch {{ddmf_git_remote_name}}
