@@ -22,9 +22,12 @@ stop:
     docker compose down
 
 build:
+    docker compose build
+
+up:
     docker compose up -d
 
-run-job: build
+run-job: up
     docker exec -it {{discord_bot_identifier}} ./job.sh
 
 check-container-running:

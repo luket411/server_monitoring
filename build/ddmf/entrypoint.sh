@@ -15,7 +15,7 @@ for var in "${required_vars[@]}"; do
 done
 
 # --  Write accesible environment variables for runtime stage
-echo LOG_DIR=/logs >> /etc/environment
+echo LOG_DIR=/logs > /etc/environment
 
 CLEANUP_SCHEDULE="0 3 * * *"
 
