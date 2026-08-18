@@ -22,7 +22,7 @@ CLEANUP_SCHEDULE="0 3 * * *"
 # -- Generate cron file
 cat > /etc/crontabs/root <<EOF
 $JOB_SCHEDULE /app/job.sh >> /logs/cron.log 2>&1
-$CLEANUP_SCHEDULE /app/cleanup-logs.sh >> /logs/cron.log 2>&1
+$CLEANUP_SCHEDULE /app/cleanup-log.sh >> /logs/cron.log 2>&1
 EOF
 
 # -- Echo the schedules to the log file
